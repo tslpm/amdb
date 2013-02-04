@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204214508) do
+ActiveRecord::Schema.define(:version => 20130204222847) do
 
   create_table "directors", :force => true do |t|
     t.string   "name"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20130204214508) do
 
   create_table "movies", :force => true do |t|
     t.string   "title"
-    t.string   "director"
     t.integer  "year"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "director_id"
   end
 
 end
