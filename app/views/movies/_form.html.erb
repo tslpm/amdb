@@ -16,8 +16,8 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :director %><br />
-    <%= f.text_field :director_id %>
+    <%= f.label :director_id %><br />
+    <%= f.collection_select :director_id, Director.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :year %><br />
