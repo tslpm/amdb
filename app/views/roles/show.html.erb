@@ -7,12 +7,12 @@
 
 <p>
   <b>Movie:</b>
-  <%= @role.movie.title %>
+  <%= link_to @role.movie.title, @role.movie %>
 </p>
 
 <p>
   <b>Actor:</b>
-  <%= @role.actor_id %>
+  <%= link_to @role.actor.name, @role.movie %>
 </p>
 
 
