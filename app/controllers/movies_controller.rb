@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
   # GET /movies/1.json
   def show
     @movie = Movie.find(params[:id])
-
+    @director = Director.where(:id => @movie.director_id).first
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @movie }

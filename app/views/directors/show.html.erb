@@ -12,7 +12,11 @@
 
 <p>
   <b>Filmography:</b>
-  <%=  %>
+  <ul>
+  <% @movies.each do |movie|  %>
+    <li><%= movie.title %></li>
+  <% end %>
+  </ul>
 </p>
 
 

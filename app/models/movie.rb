@@ -1,3 +1,7 @@
 class Movie < ActiveRecord::Base
   attr_accessible :director_id, :title, :year
+
+  def director
+    # your code...
+  end
 end
