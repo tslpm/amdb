@@ -35,3 +35,44 @@ movies.each do |movie_hash|
   m.director_id = movie_hash[:director_id]
   m.save
 end
+
+actors = [
+  { :name => "Christian Bale", :dob => Date.parse("30/01/1974") },
+  { :name => "Al Pacino", :dob => Date.parse("25/04/1940") },
+  { :name => "Tim Robbins", :dob => Date.parse("16/10/1959") },
+  { :name => "Morgan Freeman", :dob => Date.parse("01/06/1937") }
+]
+
+Actor.destroy_all
+actors.each do |actor_hash|
+  a = Actor.new
+  a.name = actor_hash[:name]
+  a.dob = actor_hash[:dob]
+  a.save
+end
+
+roles = [
+  { :character_name => "Bruce Wayne",
+    :actor_id => Actor.find_by_name("Christian Bale").id,
+    :movie_id => Movie.find_by_title("The Dark Knight").id
+  },
+  { :character_name => "Michael Corleone",
+    :actor_id => Actor.find_by_name("Al Pacino").id,
+    :movie_id => Movie.find_by_title("The Godfather").id
+  },
+  { :character_name => "Michael Corleone",
+    :actor_id => Actor.find_by_name("Al Pacino").id,
+    :movie_id => Movie.find_by_title("The Godfather: Part II").id
+  },
+  { :character_name => "Andy Dufresne",
+    :actor_id => Actor.find_by_name("Tim Robbins").id,
+    :movie_id => Movie.find_by_title("The Shawshank Redemption").id
+  },
+  { :character_name => "Red Redding",
+    :actor_id => Actor.find_by_name("Morgan Freeman").id,
+    :movie_id => Movie.find_by_title("The Shawshank Redemption").id
+  }
+]
+
+Role.destroy_all
+Role.create roles
