@@ -19,3 +19,19 @@ directors.each do |director_hash|
   d.dob = director_hash[:dob]
   d.save
 end
+
+movies = [
+  { :title => "The Dark Knight", :year => 2008, :director_id => Director.find_by_name("Christopher Nolan").id },
+  { :title => "The Godfather", :year => 1972, :director_id => Director.find_by_name("Francis Ford Coppola").id },
+  { :title => "The Godfather: Part II", :year => 1974, :director_id => Director.find_by_name("Francis Ford Coppola").id },
+  { :title => "The Shawshank Redemption", :year => 1994, :director_id => Director.find_by_name("Frank Darabont").id }
+]
+
+Movie.destroy_all
+movies.each do |movie_hash|
+  m = Movie.new
+  m.title = movie_hash[:title]
+  m.year = movie_hash[:year]
+  m.director_id = movie_hash[:director_id]
+  m.save
+end
