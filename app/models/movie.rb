@@ -9,7 +9,7 @@ class Movie < ActiveRecord::Base
 
   has_many :votes
 
-  # has many actors
+  has_many :actors, :through => :roles
 
-  # has many users
+  has_many :users, :through => :votes
 end

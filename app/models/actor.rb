@@ -3,5 +3,5 @@ class Actor < ActiveRecord::Base
 
   has_many :roles
 
-  # has many movies
+  has_many :movies, :through => :roles
 end

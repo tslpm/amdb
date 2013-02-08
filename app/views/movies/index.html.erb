@@ -14,6 +14,21 @@
   <tr>
     <td><%= movie.title %></td>
     <td><%= link_to movie.director.name, movie.director %></td>
+
+    <a href="http://localhost:3000/directors/<%= movie.director.id %>"><%= movie.director.name %></a>
+    <%= link_to movie.director.name, "http://localhost:3000/directors/#{movie.director.id}" %>
+    <%= link_to movie.director.name, director_url(movie.director.id) %>
+    <%= link_to movie.director.name, director_url(movie.director) %>
+    <%= link_to movie.director.name, movie.director %>
+
+
+
+
+
+
+
+
+
     <td><%= movie.year %></td>
     <td><%= link_to 'Show', movie %></td>
     <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
