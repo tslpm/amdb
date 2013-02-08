@@ -1,4 +1,10 @@
 Amdb::Application.routes.draw do
+  resources :votes
+
+
+  resources :users
+
+
   root :to => 'Movies#index'
 
   resources :roles
