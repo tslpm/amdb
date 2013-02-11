@@ -11,9 +11,8 @@
 
 <% @votes.each do |vote| %>
   <tr>
-    <td><%= vote.movie_id %></td>
-    <td><%= vote.user_id %></td>
-    <td><%= link_to 'Show', vote %></td>
+    <td><%= link_to vote.movie.title, movie_url(vote.movie) %></td>
+    <td><%= link_to vote.user.username, user_url(vote.user) %></td>
     <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
     <td><%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
