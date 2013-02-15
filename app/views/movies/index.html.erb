@@ -1,31 +1,27 @@
 <h1>Listing movies</h1>
 
-<table>
+<table class="table table-striped table-hover">
   <tr>
-    <th>Votes</th>
     <th>Title</th>
     <th>Director</th>
     <th>Year</th>
-    <th></th>
-    <th></th>
+    <th>Votes</th>
     <th></th>
   </tr>
 
 <% @movies.each do |movie| %>
   <tr>
-    <td><%= movie.votes.count %>
-    <td><%= movie.title %></td>
+    <td><%= link_to movie.title, movie %></td>
     <td><%= link_to movie.director.name, movie.director %></td>
-
     <td><%= movie.year %></td>
-    <td><%= link_to 'Show', movie %></td>
-    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-    <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <%= form_for(@vote) do |f| %>
-      <td><%= f.collection_select :user_id, User.all, :id, :username %></td>
-      <%= f.hidden_field :movie_id, :value => movie.id %>
-      <td><%= f.submit %></td>
-    <% end %>
+    <td><%= movie.votes.count %>
+    <td>
+      <%= form_for(@vote) do |f| %>
+        <%= f.collection_select :user_id, User.all, :id, :username %>
+        <%= f.hidden_field :movie_id, :value => movie.id %>
+        <%= f.submit %>
+      <% end %>
+    </td>
   </tr>
 
 <% end %>
