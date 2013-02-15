@@ -21,7 +21,13 @@
     <td><%= link_to 'Show', movie %></td>
     <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
     <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%= form_for(@vote) do |f| %>
+      <td><%= f.collection_select :user_id, User.all, :id, :username %></td>
+      <%= f.hidden_field :movie_id, :value => movie.id %>
+      <td><%= f.submit %></td>
+    <% end %>
   </tr>
+
 <% end %>
 </table>
 
