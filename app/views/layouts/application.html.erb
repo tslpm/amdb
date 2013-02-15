@@ -7,14 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
-    <%= link_to "Directors", directors_url %> |
-    <%= link_to "Movies", movies_url %> |
-    <%= link_to "Roles", roles_url %> |
-    <%= link_to "Actors", actors_url %> |
-    <%= link_to "Users", users_url %> |
-    <%= link_to "Votes", votes_url %>
-  </nav>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">MoviePicker</a>
+      <ul class="nav">
+        <li><%= link_to "Directors", directors_url %></li>
+        <li><%= link_to "Movies", movies_url %></li>
+        <li><%= link_to "Roles", roles_url %></li>
+        <li><%= link_to "Actors", actors_url %></li>
+        <li><%= link_to "Users", users_url %></li>
+        <li><%= link_to "Votes", votes_url %></li>
+      </ul>
+    </div>
+  </div>
+
   <div class="container">
     <%= yield %>
   </div>
