@@ -12,4 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
+
+$(function() {
+    $("#director_dob").datepicker({ dateFormat: "yy-mm-dd" });
+});
+
+
+
+
+
+
