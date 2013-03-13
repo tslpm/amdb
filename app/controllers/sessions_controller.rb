@@ -4,14 +4,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_username(params[:username])
+    data = request.env["omniauth.auth"]
+    logger.info data['provider']
+    logger.info data['uid']
+    logger.info data['info']['nickname']
 
-    if @user.present?
-      session[:user_id] = @user.id
-      redirect_to root_url
-    else
-      redirect_to '/sessions/new', :notice => "Nice try!"
+    @user = User.find_by_username(data['info']['nickname'])
+
+    if @user.blank?
+      @user = User.create username: data['info']['nickname']
     end
+
+    session[:user_id] = @user.id
+    redirect_to root_url
   end
 
   def destroy

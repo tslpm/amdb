@@ -19,9 +19,10 @@
           <% if session[:user_id].present? %>
             <%= link_to "Sign Out", '/sessions', :method => 'delete' %>
           <% else %>
-            <%= link_to "Sign In", '/sessions/new' %>
+            <%= link_to "Sign In with Twitter", "auth/twitter" %>
+            <%#= link_to "Sign In", '/sessions/new' %>
             </li><li>
-            <%= link_to "Sign Up", '/users/new' %>
+            <%#= link_to "Sign Up", '/users/new' %>
           <% end %>
         </li>
       </ul>
