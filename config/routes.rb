@@ -10,5 +10,9 @@ Amdb::Application.routes.draw do
   resources :roles
   resources :actors
   resources :movies
-  resources :directors
+  resources :directors do
+    resources :movies
+  end
+
+
 end
